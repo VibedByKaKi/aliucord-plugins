@@ -1,0 +1,78 @@
+[submodule "docs/documentation"]
+	path = docs/documentation
+	url = https://github.com/Aliucord/documentation.git
+[submodule "docs/plugins-template"]
+	path = docs/plugins-template
+	url = https://github.com/Aliucord/plugins-template.git
+[submodule "docs/gradle-plugin"]
+	path = docs/gradle-plugin
+	url = https://github.com/Aliucord/gradle-plugin.git
+[submodule "examples/Vendicated-AliucordPlugins"]
+	path = examples/Vendicated-AliucordPlugins
+	url = https://github.com/Vendicated/AliucordPlugins.git
+[submodule "examples/Juby210-Aliucord-plugins"]
+	path = examples/Juby210-Aliucord-plugins
+	url = https://github.com/Juby210/Aliucord-plugins.git
+[submodule "examples/X1nto-AliucordPlugins"]
+	path = examples/X1nto-AliucordPlugins
+	url = https://github.com/X1nto/AliucordPlugins.git
+[submodule "examples/mantikafasi-AliucordPlugins"]
+	path = examples/mantikafasi-AliucordPlugins
+	url = https://github.com/mantikafasi/AliucordPlugins.git
+[submodule "examples/zt64-aliucord-plugins"]
+	path = examples/zt64-aliucord-plugins
+	url = https://github.com/zt64/aliucord-plugins.git
+[submodule "examples/rushiiMachine-aliucord-plugins"]
+	path = examples/rushiiMachine-aliucord-plugins
+	url = https://github.com/rushiiMachine/aliucord-plugins.git
+[submodule "examples/nyakowint-AliuPlugins"]
+	path = examples/nyakowint-AliuPlugins
+	url = https://github.com/nyakowint/AliuPlugins.git
+[submodule "examples/Aliucord-plugins"]
+	path = examples/Aliucord-plugins
+	url = https://github.com/Aliucord/plugins.git
+[submodule "examples/wingio-plugins"]
+	path = examples/wingio-plugins
+	url = https://github.com/wingio/plugins.git
+[submodule "examples/RhythmLunatic-aliucord-plugins"]
+	path = examples/RhythmLunatic-aliucord-plugins
+	url = https://github.com/RhythmLunatic/aliucord-plugins.git
+[submodule "examples/TymanWasTaken-aliucord-plugins"]
+	path = examples/TymanWasTaken-aliucord-plugins
+	url = https://github.com/TymanWasTaken/aliucord-plugins.git
+[submodule "examples/c10udburst-aliucord-plugins"]
+	path = examples/c10udburst-aliucord-plugins
+	url = https://github.com/c10udburst-discord/aliucord-plugins.git
+[submodule "examples/quincynyan-AliucordPlugins"]
+	path = examples/quincynyan-AliucordPlugins
+	url = https://github.com/quincynyan/AliucordPlugins.git
+[submodule "examples/peter1599-Aliucord-plugins"]
+	path = examples/peter1599-Aliucord-plugins
+	url = https://github.com/peter1599/Aliucord-plugins.git
+[submodule "examples/swishs-aliucord-plugins"]
+	path = examples/swishs-aliucord-plugins
+	url = https://github.com/swishs-client-mod-plugins/aliucord-plugins.git
+[submodule "examples/oSumAtrIX-aliucord-plugins"]
+	path = examples/oSumAtrIX-aliucord-plugins
+	url = https://github.com/oSumAtrIX/aliucord-plugins.git
+[submodule "examples/scrazzz-AliucordPlugins"]
+	path = examples/scrazzz-AliucordPlugins
+	url = https://github.com/scrazzz/AliucordPlugins.git
+[submodule "examples/MrAn0nym-Aliucord-Plugins"]
+	path = examples/MrAn0nym-Aliucord-Plugins
+	url = https://github.com/MrAn0nym/Aliucord-Plugins.git
+[submodule "examples/autodistries-aliucord-plugins"]
+	path = examples/autodistries-aliucord-plugins
+	url = https://github.com/autodistries/aliucord-plugins.git
+[submodule "examples/lexisother-AliucordPlugins"]
+	path = examples/lexisother-AliucordPlugins
+	url = https://github.com/lexisother/AliucordPlugins.git
+[submodule "examples/nyxiereal-AliucordPlugins"]
+	path = examples/nyxiereal-AliucordPlugins
+	url = https://github.com/nyxiereal/AliucordPlugins.git
+[submodule "examples/Ushie-Aliucord-Plugins"]
+	path = examples/Ushie-Aliucord-Plugins
+	url = https://github.com/Ushie/Aliucord-Plugins.git
+[submodule "examples/js6pak-WhoReacted"]
+	path = examples/js6pak-WhoReacted
+	url = https://github.com/js6pak/WhoReacted.git
