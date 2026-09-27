@@ -39,7 +39,6 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v6
         with:
-          dependency-graph: generate-and-submit
           cache-encryption-key: ${{ secrets.GRADLE_CACHE_ENCRYPTION_KEY }}
 
       - name: Build
@@ -53,13 +52,6 @@ jobs:
           cp "$GITHUB_WORKSPACE"/src/plugins/*/build/outputs/*.zip "$GITHUB_WORKSPACE"/builds/
           cp "$GITHUB_WORKSPACE"/src/build/outputs/updater.json "$GITHUB_WORKSPACE"/builds/
 
-      - name: Upload plugin ZIP artifacts
-        uses: actions/upload-artifact@v7
-        with:
-          name: plugins
-          if-no-files-found: error
-          path: ${{ github.workspace }}/src/plugins/**/build/outputs/*.zip
-
       - name: Push builds
         run: |
           cd "$GITHUB_WORKSPACE/builds"
@@ -68,3 +60,11 @@ jobs:
           git add .
           git commit -m "Build $GITHUB_SHA" || exit 0
           git push
+
+      - name: Upload plugin ZIP artifacts
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: plugins
+          if-no-files-found: error
+          path: ${{ github.workspace }}/src/plugins/**/build/outputs/*.zip
