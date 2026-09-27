@@ -36,14 +36,13 @@ class MultiSelectCopy : Plugin() {
 
     private val fromHereId = View.generateViewId()
     private val throughHereId = View.generateViewId()
-    private val clearStartId = View.generateViewId()
 
     override fun start(context: Context) {
         messagesHolder = ReflectUtils.getField(StoreStream.getMessages(), "holder") as StoreMessagesHolder
 
         // Drop a pending start when the user switches channels
         patcher.after<StoreMessages>("handleChannelSelected", Long::class.javaPrimitiveType!!) {
-            clearStart(silent = true)
+            start = null
         }
 
         patcher.after<WidgetChatListActions>(
@@ -60,7 +59,7 @@ class MultiSelectCopy : Plugin() {
 
             val armed = start
             if (armed != null && armed.channelId != message.channelId) {
-                clearStart(silent = true)
+                start = null
             }
 
             if (layout.findViewById<View>(fromHereId) != null) return@after
@@ -91,25 +90,19 @@ class MultiSelectCopy : Plugin() {
                         sheet.dismiss()
                     },
                 )
-                layout.addView(
-                    sheetItem(ctx, clearStartId, "Clear copy start", copyIcon) {
-                        clearStart(silent = false)
-                        sheet.dismiss()
-                    },
-                )
             }
         }
     }
 
     override fun stop(context: Context) {
         patcher.unpatchAll()
-        clearStart(silent = true)
+        start = null
     }
 
     private fun copyRange(anchor: Anchor, end: Message) {
         if (anchor.channelId != end.channelId) {
             Utils.showToast("Start was in another channel")
-            clearStart(silent = true)
+            start = null
             return
         }
 
@@ -119,7 +112,7 @@ class MultiSelectCopy : Plugin() {
         val channelMessages = messagesHolder.getMessagesForChannel(anchor.channelId)
         if (channelMessages.isNullOrEmpty()) {
             Utils.showToast("No loaded messages to copy")
-            clearStart(silent = true)
+            start = null
             return
         }
 
@@ -132,7 +125,7 @@ class MultiSelectCopy : Plugin() {
 
         if (inRange.isEmpty()) {
             Utils.showToast("No loaded messages in that range")
-            clearStart(silent = true)
+            start = null
             return
         }
 
@@ -142,7 +135,7 @@ class MultiSelectCopy : Plugin() {
 
         if (text.isEmpty()) {
             Utils.showToast("Nothing to copy in that range")
-            clearStart(silent = true)
+            start = null
             return
         }
 
@@ -154,7 +147,7 @@ class MultiSelectCopy : Plugin() {
             if (truncated) append(" (capped at $MAX_MESSAGES)")
         }
         Utils.showToast(toast)
-        clearStart(silent = true)
+        start = null
     }
 
     private fun formatMessage(message: Message): String {
@@ -175,12 +168,6 @@ class MultiSelectCopy : Plugin() {
             message.isLocal ||
             message.isFailed ||
             message.isLoading
-
-    private fun clearStart(silent: Boolean) {
-        if (start == null) return
-        start = null
-        if (!silent) Utils.showToast("Copy start cleared")
-    }
 
     private fun themedIcon(ctx: Context): Drawable? {
         val resId = listOf("ic_copy_24dp", "ic_content_copy_24dp", "ic_content_copy_white_a60_24dp")

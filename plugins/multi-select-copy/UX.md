@@ -41,7 +41,7 @@ Actions on the existing message long-press sheet (`WidgetChatListActions`). Whic
 | Sheet state | Rows shown |
 | --- | --- |
 | No start armed | **Copy from here** only |
-| Start armed (same channel) | **Copy from here** (re-arm) + **Copy through here** + optional **Clear copy start** |
+| Start armed (same channel) | **Copy from here** (re-arm) + **Copy through here** |
 
 **Copy through here** must not appear until a start exists. That removes the dead-end "set a start first" toast and keeps the sheet minimal on normal long-presses.
 
@@ -81,7 +81,7 @@ Order of start vs end does not matter for multi-message ranges. Snowflake IDs ar
 - First tap: arm start, toast "Start set…"
 - Any later tap (same message or another): overwrite start, toast "Start updated."
 
-That way a wrong first pick is fixed by long-pressing the right message and choosing **Copy from here** again. No need to clear first. **Clear copy start** remains available for abandoning the flow entirely.
+That way a wrong first pick is fixed by long-pressing the right message and choosing **Copy from here** again. No separate clear action.
 
 ### Same message as start and end
 
@@ -95,7 +95,7 @@ Useful when the user armed a start, then decided they only needed that one after
 - Sheet stays clean: end action only shows when it can succeed.
 - No selection mode chrome, no checkboxes, no sticky action bar.
 - One piece of plugin state: optional start anchor.
-- Mistakes are cheap: re-arm start in place, or clear.
+- Mistakes are cheap: re-arm start in place.
 - Does not steal single taps or double-taps from TapTap / reply / jump.
 
 ### What the user sees
@@ -104,7 +104,6 @@ Sheet items (icon + label, `UiKit_Settings_Item_Icon`, same as MessageLinkContex
 
 - Always when relevant: **Copy from here**
 - Only after a start is armed in this channel: **Copy through here**
-- Optional while armed: **Clear copy start**
 
 When **Copy through here** is shown, a one-line hint is fine, e.g. `Start: message from Alice`. No bottomsheet redesign.
 
@@ -112,7 +111,6 @@ Toasts only. No modal confirm for the happy path.
 
 ### Cancel
 
-- **Clear copy start** (only while armed), or
 - Replacing via **Copy from here** on another (or the same) message, or
 - Leaving the channel clears the start (recommended: clear on channel change).
 
@@ -197,7 +195,7 @@ plugins/multi-select-copy/
 
 Code path for v1:
 
-1. `patcher.after` / `Hook` on `WidgetChatListActions.configureUI` — always add **Copy from here**; add **Copy through here** (and optional **Clear**) only if `start != null` and `start.channelId == current message's channel`. Mirror MessageLinkContext / ForwardMessages / FavoriteMessages' conditional row.
+1. `patcher.after` / `Hook` on `WidgetChatListActions.configureUI` — always add **Copy from here**; add **Copy through here** only if `start != null` and `start.channelId == current message's channel`. Mirror MessageLinkContext / ForwardMessages / FavoriteMessages' conditional row.
 2. In-memory `var start: Pair<Long, Long>?` = channelId + messageId.
 3. On **Copy from here**: `start = (channelId, messageId)` (overwrite if already set); toast set vs updated.
 4. On **Copy through here**: if `startId == endId`, copy that one message; else walk loaded messages with id in `[lo, hi]`; `Utils.setClipboard("Messages", text)`; toast; clear start.

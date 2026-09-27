@@ -14,7 +14,7 @@ Copy a contiguous range of chat messages on Aliucord Android.
 2. Long-press the last message → **Copy through here** (only appears after step 1).
 3. Paste anywhere.
 
-Choosing **Copy from here** again replaces a mistaken start. Choosing **Copy through here** on the same message copies just that one. **Clear copy start** abandons the range.
+Choosing **Copy from here** again replaces a mistaken start. Choosing **Copy through here** on the same message copies just that one.
 
 Design notes: [UX.md](UX.md)
 
