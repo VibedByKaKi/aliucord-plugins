@@ -1,0 +1,1 @@
+{"multi-select-copy":{"version":"1.0.0","build":"https://cdn.jsdelivr.net/gh/VibedByKaKi/aliucord-plugins@refs/heads/builds/multi-select-copy.zip","buildCrc32":"C027E562","changelog":"# 1.0.0\n* Initial release: range copy from the message long-press sheet","minimumDiscordVersion":126021,"minimumAliucordVersion":"2.9.1","minimumKotlinVersion":"1.5.21","minimumApiLevel":21}}
