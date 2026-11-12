@@ -47,11 +47,13 @@ Install: download [`DMCategories.zip`](https://github.com/VibedByKaKi/zt64-aliuc
 
 </td></tr></table>
 
-## Guide
+## Development
+
+### Guide
 
 Start at [`guide/README.md`](guide/README.md). Covers setup, plugin anatomy, commands, patching, settings, reflection, build/publish, and which example repos to read for what.
 
-## Clone
+### Clone
 
 ```bash
 git clone --recurse-submodules https://github.com/VibedByKaKi/aliucord-plugins.git
@@ -63,7 +65,7 @@ If you already cloned without submodules:
 git submodule update --init --recursive
 ```
 
-## Build
+### Build
 
 Needs JDK 21 and an Android SDK.
 
