@@ -17,9 +17,35 @@ Built ZIPs land on the [`builds`](https://github.com/VibedByKaKi/aliucord-plugin
 
 ### [multi-select-copy](plugins/multi-select-copy/README.md)
 
+<table><tr><td>
+
 Copy a contiguous range of chat messages. Long-press **Copy from here**, then **Copy through here** on another (or the same) message.
 
 Install: download [`multi-select-copy.zip`](https://github.com/VibedByKaKi/aliucord-plugins/raw/builds/multi-select-copy.zip), put it in `Aliucord/plugins`, then restart Aliucord.
+
+</td><td>
+
+![](./plugins/multi-select-copy/screenshot.webp)
+
+</td></tr></table>
+
+### [Forked from zt64](https://github.com/VibedByKaKi/zt64-aliucord-plugins)
+
+#### DMCategories
+
+<table><tr><td>
+
+Pin DMs at the top. The original hard-codes sorting by last activity, fork allows user-chosen sorting.
+
+Install: download [`DMCategories.zip`](https://github.com/VibedByKaKi/zt64-aliucord-plugins/releases/download/dev/DMCategories.zip), put it in `Aliucord/plugins`, then restart Aliucord.
+
+</td><td>
+
+![](https://github.com/VibedByKaKi/zt64-aliucord-plugins/raw/dev/.VibedByKaKi87/1_DMCategories_settings.webp)
+
+![](https://github.com/VibedByKaKi/zt64-aliucord-plugins/raw/dev/.VibedByKaKi87/2_DMCategories_long_press_menu.webp)
+
+</td></tr></table>
 
 ## Guide
 
